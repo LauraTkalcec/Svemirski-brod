@@ -11,6 +11,7 @@ public class KontrolaIgraca : MonoBehaviour {
 	public GameObject projektil;
 	public float brzinaProjektila;
 	public float snaga = 250;
+    public AudioClip zvukPucnja;
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
@@ -55,6 +56,7 @@ public class KontrolaIgraca : MonoBehaviour {
 		{
 			GameObject laser = Instantiate(projektil, transform.position, Quaternion.identity) as GameObject;
 			laser.GetComponent<Rigidbody2D>().velocity = new Vector3(0, brzinaProjektila, 0);
+            AudioSource.PlayClipAtPoint(zvukPucnja, transform.position);
 		}
 	}
 	
